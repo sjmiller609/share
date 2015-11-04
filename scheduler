@@ -1,0 +1,121 @@
+already talked about this one:
+auto scheduler for you life
+
+sql database hold all event info
+a new optional schedule is made for you each morning, at a time you choose in settings
+
+i'm thinking that a fully completed schedule should be availbe in the db at any time, it is just only serviced to google api in the morning
+change schedule when new thing is added or schedule is changed by user
+
+google api: need to have this functionality remotely from server
+	add event
+	remove event
+
+the schedule is generated in ruby server-side then added to your calendar via google calendar api
+plus side: backend and frontend are very segmented.
+	front end should be for adding new things to calendar / links to see calendar
+	rails
+
+
+types of objects:
+	event
+		title
+		start time
+		end time
+	assignment / task
+		title
+		due date
+		estimated time
+		+/- (optional, maybe global setting)
+		reference to friend object
+	goal
+		title
+	activity
+		title
+		estimated time
+		desired frequency
+	friend (see ** below)
+		first
+		last
+		email
+
+activies are different than tasks in that they do not have a particular due date. this would be for like "go to gym" or something
+		
+hard part: develop algorithm for making scehdule
+possible algo solution: greedy apporach
+	events are already in your calendar right away as soon as you add them (as if you added through google)
+	do meals
+		or query user for when they want their meals
+	then put in task sorted by least time left
+	put in activity if the time since you did it last was...??
+		should be dependent on freqency
+	then put in goals
+		"goal" time should be used to add tasks / activities that bring you closer to your goal
+considerations
+what happens when your remaining time is less than the sum of due tasks?
+	should be a feature to warn you when this is getting close
+	"overtime mode", increases the scheduling window
+	sends you text warnings
+	crazy ideas:
+		sends your friends a message telling them you are falling behind
+			**add friend category to tasks??????
+				can this be done through google api??? or maybe that is not possible for security reasons
+
+messages: email is easiest from server
+	could set up texting, don't know how
+
+need to consider what to do about breaks
+	don't want to work solid
+	maybe have some options for this?
+		total time
+		frequency
+
+want an option for "reshuffling" the day's picks by removing specific items
+	replace removed with next one due
+
+i think the greedy apporach should be implemented first. then, we can add features to make it more like a cpu scheduler, potentially.
+potential features:
+	add a "fun-ness" rating to each, optimize algo
+		put not fun ones further apart
+		optimize algorithm for the "funness" of any given day being as close to even with following days as possible
+	think about adding a shortest job first type algoirthm , or implement other cpu scheduler techniquies
+		round robin long task: you get tired
+		consider multi-tiered scheduler
+		consider other cpu scheduling algos
+
+user input: how does the user easily add stuff when they think of it?
+	mobile app would be ideal, but hard.
+	website is probably best for this, and should be done first.
+
+what happens when a user removes an event not through the app?
+---------------------------------------------------------
+where to start??
+round 1
+	make database
+		user
+		one table for each type of object
+		current schedule
+		etc... will be added to as project continues
+	get api functions abstracted (make sure it works)
+		addToGoogle(event json)
+			don't worry about our custom stuff, this is just for adding a normal event to google, we will call to add stuff to google calendar (everything will be events when added, our server deals with the logic stuff)
+		getEvents(date)
+			lists all currently inserted events (does not remove)
+		removeEvent(???)
+	set up MINIMAL web site to use for user input
+		type in gmail account to log in (no auth)
+			might need password for google api tho, don't worry yet.
+		one button per type of object you can add
+	draw user experience flow chart
+	draw application flow chart
+
+round 2:
+	put events on the buttons. these event should not call the api, but should insert the user data into the database only.
+		button press --> form --> post --> store db --> done.
+	backend algo, minimal
+		make possible schedules for any given user
+		input username --> get stuff from db --> persist possible schedule.
+	sendSchdeules()
+		reads from location schedules are persisted --> uses api functions to add stuff as according to schedule. -->
+
+

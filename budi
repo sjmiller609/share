@@ -1,0 +1,24 @@
+app for find a buddy to do an activity with
+
+menu that is tree structure
+
+
+physical
+	gym
+		lift
+		raquetball
+		soccer
+		whatever
+study
+	chemistry
+		101
+		ochem
+
+etc.
+
+the app would be kind of like tinder and uber i guess
+you pick an activity then it matches you to a person
+at the end, you give them a thumbs up or down
+	if up, then they are added as your "budi" on the back end
+	when searching for a partner for an activity, budis are prioritized.
+	like linkedin, it knows if you are a 2nd / 3rd connection, and also prioritizes that, but it's hidden on the backend

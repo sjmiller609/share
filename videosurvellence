@@ -1,0 +1,9 @@
+application used to monitor one or more video cameras
+remembers only when there is movement
+	based on percent of picuture that changes as any given time.
+can log in online then see your videos
+	organized by date
+	
+hard features:
+	encrypt
+	voice to text, searching available

@@ -22,3 +22,9 @@ at the end, you give them a thumbs up or down
 	if up, then they are added as your "budi" on the back end
 	when searching for a partner for an activity, budis are prioritized.
 	like linkedin, it knows if you are a 2nd / 3rd connection, and also prioritizes that, but it's hidden on the backend
+
+this idea is kind of cool bc there are a lot of potential applications to having a "friend network" stored in memory like this.
+also it is interesting bc if a bunch of people were using this it would automagically create friend group irl since the same ppl would start to link to each other a lot.
+it's kind of optimizing by if you like them / schdule bc you don't plan aheaad with people, it just looks for people who are also currently searching
+
+what do do if nobody esle is searching right then? scalability

@@ -1,7 +1,0 @@
-SUMMARY
-Handlebars.js is a compiler built with JavaScript that takes any HTML and Handlebars expression and compiles them to a JavaScript function. This derived JavaScript function then takes one parameter, an object—your data—and it returns an HTML string with the object properties’ values inserted (interpolated) into the HTML. So, you end up with a string (HTML) that has the values from the object properties inserted in the relevant places, and you insert the string on a page.
-
-INCLUDING TEMPLATE (html w/ expressions) IN HTML FILE
-since you have to pass the Handlebars expression (with any containing HTML) to the Handlebars.compile function, a script tag is used to enclose each Handlebars template when they are on the HTML page. Indeed, the script tag is not necessary when a template is in its own HTML file, but it is necessary when the Handlebars template is on the page along with other Handlebars template and other HTML content.
-
-if the context (data) has an array of objects, use the handlebars each helper
